@@ -1,0 +1,113 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-primary: #22c55e;
+  --color-primary-50: #f0fdf4;
+  --color-primary-100: #dcfce7;
+  --color-primary-200: #bbf7d0;
+  --color-primary-300: #86efac;
+  --color-primary-400: #4ade80;
+  --color-primary-500: #22c55e;
+  --color-primary-600: #16a34a;
+  --color-primary-700: #15803d;
+  --color-primary-800: #166534;
+  --color-primary-900: #14532d;
+  --color-primary-950: #052e16;
+
+  --color-wise: #00a86b;
+  --color-wise-50: #f0fdf4;
+  --color-wise-100: #dcfce7;
+  --color-wise-500: #00a86b;
+  --color-wise-600: #009158;
+  --color-wise-700: #007a45;
+  --color-wise-800: #006332;
+  --color-wise-900: #004a20;
+  --color-wise-950: #002e16;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --animate-fade-in: 'fadeIn 0.3s ease-in-out';
+  --animate-slide-up: 'slideUp 0.3s ease-out';
+  --animate-spin-slow: 'spin 2s linear infinite';
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .wise-gradient {
+    @apply bg-gradient-to-r from-wise-500 to-wise-600;
+  }
+
+  .card-shadow {
+    @apply shadow-lg shadow-gray-200/50;
+  }
+
+  .btn-primary {
+    @apply bg-[#102940] text-white font-semibold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-wise-600 border-2 border-wise-600 font-semibold py-3 px-6 rounded-lg hover:bg-wise-50 transition-colors;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 border focus:outline-0 border-gray-300 rounded-lg focus:ring-2 focus:ring-wise-500 focus:border-transparent transition-colors;
+  }
+
+  .input-error {
+    @apply border-red-500 focus:ring-red-500;
+  }
+
+  .spinner {
+    @apply animate-spin rounded-full border-4 border-gray-200 border-t-wise-500;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
